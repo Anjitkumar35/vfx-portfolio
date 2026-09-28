@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anjit Kumar | Senior Matchmove & Tracking Artist</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --accent: #00d2ff;
+      --accent-glow: rgba(0, 210, 255, 0.25);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0 16px 50px 16px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      padding: 40px 0 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    h1 {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .contact-bar {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .contact-bar a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .contact-bar a:hover {
+      color: var(--accent);
+    }
+    section {
+      margin-top: 40px;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: "";
+      flex-grow: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    /* Terminal Console Box */
+    .terminal-box {
+      background: #0d131f;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #eab308; }
+    .dot-green { background: #22c55e; }
+    .tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .tag {
+      background: #1f293d;
+      color: #e2e8f0;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media(min-width: 640px) {
+      .video-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .video-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-info {
+      padding: 12px 16px;
+      font-size: 0.9rem;
+    }
+    .film-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .film-tag {
+      background: #162033;
+      border: 1px solid #25334e;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+    }
+    .job-item {
+      margin-bottom: 18px;
+    }
+    .job-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .job-company {
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+    .job-date {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+    .job-item ul {
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: #162033;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>ANJIT KUMAR</h1>
+      <div class="subtitle">Senior Matchmove & Tracking Artist</div>
+      <div class="contact-bar">
+        <span>Email: <a href="mailto:anjit2351@gmail.com">anjit2351@gmail.com</a></span>
+        <span>Phone: +91 7079661883</span>
+        <span>Location: Aurangabad, Bihar, India</span>
+      </div>
+    </header>
+
+    <!-- Professional Pipeline Console -->
+    <div class="terminal-box">
+      <div class="terminal-header">
+        <div class="dots">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+        </div>
+        <span>3DEqualizer_CameraSolver // Production Standard</span>
+      </div>
+      <div>
+        <p style="font-size: 0.9rem; margin-bottom: 6px;"><strong>Core Toolset:</strong></p>
+        <div class="tags-list">
+          <span class="tag">3DEqualizer</span>
+          <span class="tag">Autodesk Maya</span>
+          <span class="tag">The Foundry NUKE</span>
+          <span class="tag">After Effects</span>
+        </div>
+        <p style="font-size: 0.9rem; margin-top: 12px; color: var(--text-muted);">
+          <strong>Solve Attributes:</strong> High Complexity Shots / Parallax & Motion Blur Solving • Rock-Solid Geometry Lock • Lens Distortion Calibration
+        </p>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <section>
+      <div class="section-title">Professional Summary</div>
+      <div class="card">
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Award-winning Senior Matchmove & Tracking Artist with over 6 years of experience in high-end international feature films. Proven expertise in delivering complex camera solves, object tracking, and body tracking for blockbuster projects like <em>1917</em>, <em>Ant-Man and the Wasp: Quantumania</em>, and <em>Snow White</em>. Recipient of the ERAKA (Artist of the Month) and The Extra Miler awards for consistent high-quality delivery under tight production schedules.
+        </p>
+      </div>
+    </section>
+
+    <!-- Showreels -->
+    <section>
+      <div class="section-title">Production Showreels</div>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/TCW5Rta_oU" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <strong>Featured Projects Showreel</strong>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 2px;">Theatrical cuts showcasing matchmove and integration across feature films.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/QSWQyLHFQ2Mb" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <strong>Matchmove Demo Reel</strong>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 2px;">Detailed breakdown of camera solving and point tracking workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Films -->
+    <section>
+      <div class="section-title">Major Feature Film Projects</div>
+      <div class="film-badges">
+        <span class="film-tag">Ant-Man and the Wasp: Quantumania</span>
+        <span class="film-tag">Snow White</span>
+        <span class="film-tag">1917</span>
+        <span class="film-tag">Maleficent: Mistress of Evil 2</span>
+        <span class="film-tag">The Call of the Wild</span>
+        <span class="film-tag">Cats</span>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section>
+      <div class="section-title">Professional Experience</div>
+      <div class="card">
+        <div class="job-item">
+          <div class="job-title">Senior Matchmove & Tracking Artist (Contract)</div>
+          <div class="job-company">Rotomaker India Pvt Ltd</div>
+          <div class="job-date">Mar 17, 2026 – Present</div>
+          <ul>
+            <li>Currently providing high-end camera and object tracking services for studio projects.</li>
+            <li>Managing complex production workflows with a focus on technical precision and quality delivery.</li>
+          </ul>
+        </div>
+
+        <div class="job-item">
+          <div class="job-title">Mid Matchmove Artist (Contract via Freelance)</div>
+          <div class="job-company">Pixstone Images</div>
+          <div class="job-date">Jun 23, 2025 – Mar 2026</div>
+          <ul>
+            <li>Delivered high-end camera and object tracking for various studio sequences.</li>
+            <li>Specialized in complex solves, parallax, and lens distortion using 3DEqualizer and Maya.</li>
+          </ul>
+        </div>
+
+        <div class="job-item">
+          <div class="job-title">Mid / Senior Matchmove Artist</div>
+          <div class="job-company">Technicolor Creative Studios (Trace VFX, MPC, The Mill)</div>
+          <div class="job-date">2022 – Feb 2025</div>
+          <ul>
+            <li>Awarded ERAKA (Artist of the Month) for outstanding performance and quality delivery.</li>
+            <li>Delivered high-quality tracking for major feature films including Snow White and Ant-Man.</li>
+          </ul>
+        </div>
+
+        <div class="job-item">
+          <div class="job-title">Matchmove Artist</div>
+          <div class="job-company">Rotomaker India Pvt Ltd</div>
+          <div class="job-date">2021 – 2022 (6 Months)</div>
+          <ul>
+            <li>Executed production-level tracking and object-solving tasks for international visual effects sequences.</li>
+          </ul>
+        </div>
+
+        <div class="job-item">
+          <div class="job-title">Matchmove & RA Artist</div>
+          <div class="job-company">Trace VFX</div>
+          <div class="job-date">2019 – 2020 (2 Years)</div>
+          <ul>
+            <li>Recipient of THE EXTRA MILER award for exceptional dedication and quality output.</li>
+            <li>Developed core expertise in Matchmove, RotoAnim (Rotomation), Object Tracking, and Body Tracking.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="section-title">Education & Qualifications</div>
+      <div class="card" style="padding: 10px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Course / Degree</th>
+              <th>Institution / University</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Diploma in VFX Pro</strong></td>
+              <td>Arena Animation, Ranchi, Jharkhand</td>
+              <td>2017 – 2018</td>
+            </tr>
+            <tr>
+              <td>12th (Commerce - BSEB)</td>
+              <td>S. Sinha College, Aurangabad (Magadh University)</td>
+              <td>2015 – 2017</td>
+            </tr>
+            <tr>
+              <td>10th (Matriculation - BSEB)</td>
+              <td>M.S.S.B. High School, Dhundhua, Bihar</td>
+              <td>2014</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
