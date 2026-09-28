@@ -41,30 +41,6 @@
       text-align: center;
       border-bottom: 1px solid var(--border);
     }
-    
-    /* DP Wrapper placed to the far-left arrow mark */
-    .profile-photo-container {
-      display: flex;
-      justify-content: flex-start; /* Arrow ki taraf poora left align */
-      margin-bottom: 16px;
-    }
-    @media(max-width: 640px) {
-      .profile-photo-container {
-        justify-content: center; /* Mobile devices par centered */
-      }
-    }
-    .profile-photo {
-      width: 145px;
-      height: 145px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 65%;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 20px var(--accent-glow);
-      display: block;
-      background-color: #0d1524;
-      transition: object-position 0.3s ease;
-    }
 
     h1 {
       font-size: 2.3rem;
@@ -79,6 +55,27 @@
       margin-top: 4px;
       letter-spacing: 0.5px;
     }
+
+    /* DP Center Container under Name */
+    .profile-photo-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 60%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+      display: block;
+      background-color: #0d1524;
+      transition: object-position 0.3s ease;
+    }
+
     .contact-bar {
       margin-top: 15px;
       font-size: 0.95rem;
@@ -382,13 +379,16 @@
 
   <div class="container">
     <header>
-      <!-- Arrow ke paas Left Positioned DP -->
+      <!-- Name & Role at Top -->
+      <h1>ANJIT KUMAR</h1>
+      <div class="subtitle">Senior Matchmove & Tracking Artist</div>
+
+      <!-- DP in Perfect Center Below Name -->
       <div class="profile-photo-container">
         <img id="avatarImg" src="./profile.jpg" alt="Anjit Kumar" class="profile-photo" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='profile.jpg';}else if(this.dataset.retry==1){this.dataset.retry=2;this.src='/vfx-portfolio/profile.jpg';}">
       </div>
 
-      <h1>ANJIT KUMAR</h1>
-      <div class="subtitle">Senior Matchmove & Tracking Artist</div>
+      <!-- Contact Bar -->
       <div class="contact-bar">
         <span>📞 Main Phone: <a href="tel:+917004064492"><strong>+91 7004064492</strong></a></span>
         <span>Alt Phone: <a href="tel:+917079661883">+91 7079661883</a></span>
@@ -669,7 +669,7 @@
     </section>
   </div>
 
-  <!-- Smart Face Centering Script -->
+  <!-- Face Centering Script -->
   <script>
     window.addEventListener('load', async () => {
       const img = document.getElementById('avatarImg');
@@ -686,7 +686,7 @@
             img.style.objectPosition = `${centerX}% ${centerY}%`;
           }
         } catch (e) {
-          // Fallback to default
+          // Default styling applied
         }
       }
     });
