@@ -51,6 +51,7 @@
       box-shadow: 0 0 20px var(--accent-glow);
       margin-bottom: 16px;
       display: inline-block;
+      background-color: #0d1524;
     }
     h1 {
       font-size: 2.3rem;
@@ -368,7 +369,7 @@
 
   <div class="container">
     <header>
-      <img src="profile.jpg" alt="Anjit Kumar" class="profile-photo">
+      <img src="./profile.jpg" alt="Anjit Kumar" class="profile-photo" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='profile.jpg';}else if(this.dataset.retry==1){this.dataset.retry=2;this.src='/vfx-portfolio/profile.jpg';}">
       <h1>ANJIT KUMAR</h1>
       <div class="subtitle">Senior Matchmove & Tracking Artist</div>
       <div class="contact-bar">
