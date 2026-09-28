@@ -6,13 +6,15 @@
   <title>Anjit Kumar | Senior Matchmove & Tracking Artist</title>
   <style>
     :root {
-      --bg: #090d16;
-      --card-bg: #111827;
+      --bg: #070b12;
+      --card-bg: #0d1524;
       --accent: #00d2ff;
       --accent-glow: rgba(0, 210, 255, 0.25);
+      --accent-amber: #f59e0b;
       --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --border: #1f2937;
+      --text-muted: #94a3b8;
+      --border: #1e293b;
+      --grid-line: rgba(0, 210, 255, 0.08);
     }
     * {
       box-sizing: border-box;
@@ -22,29 +24,35 @@
     }
     body {
       background-color: var(--bg);
+      background-image: 
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 32px 32px;
       color: var(--text-main);
       line-height: 1.6;
-      padding: 0 16px 50px 16px;
+      padding: 0 16px 60px 16px;
     }
     .container {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
     }
     header {
-      padding: 40px 0 20px;
+      padding: 40px 0 24px;
       text-align: center;
       border-bottom: 1px solid var(--border);
     }
     h1 {
-      font-size: 2.2rem;
-      letter-spacing: 1px;
+      font-size: 2.3rem;
+      letter-spacing: 1.5px;
       color: #fff;
+      text-transform: uppercase;
     }
     .subtitle {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--accent);
       font-weight: 600;
       margin-top: 4px;
+      letter-spacing: 0.5px;
     }
     .contact-bar {
       margin-top: 15px;
@@ -63,9 +71,33 @@
     .contact-bar a:hover {
       color: var(--accent);
     }
+    .header-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .btn-download-cv {
+      background: #0284c7;
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn-download-cv:hover {
+      background: #0369a1;
+      transform: translateY(-2px);
+    }
     .contact-highlight {
-      background: #162033;
-      border: 1px solid #25334e;
+      background: #101c30;
+      border: 1px solid #1e3a5f;
       padding: 10px 18px;
       border-radius: 6px;
       margin-top: 15px;
@@ -76,39 +108,58 @@
     .contact-highlight strong {
       color: var(--accent);
     }
-    section {
-      margin-top: 40px;
+
+    /* VFX Viewport Visualizer (Wire Cone & RA Model) */
+    .vfx-showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 25px;
     }
-    .section-title {
-      font-size: 1.3rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--accent);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    @media(min-width: 680px) {
+      .vfx-showcase-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-    .section-title::after {
-      content: "";
-      flex-grow: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+    .viewport-card {
+      background: #09101d;
+      border: 1px solid #1e293b;
       border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 16px;
+      overflow: hidden;
+      position: relative;
     }
+    .viewport-header {
+      background: #050a14;
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      border-bottom: 1px solid #1e293b;
+    }
+    .viewport-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: radial-gradient(circle at center, rgba(0,210,255,0.05) 0%, transparent 70%);
+    }
+    .viewport-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      text-align: center;
+    }
+
     /* Terminal Console Box */
     .terminal-box {
-      background: #0d131f;
+      background: #0a1120;
       border: 1px solid #1e293b;
       border-radius: 8px;
       padding: 16px;
-      margin-top: 20px;
+      margin-top: 25px;
     }
     .terminal-header {
       display: flex;
@@ -139,12 +190,41 @@
       margin: 10px 0;
     }
     .tag {
-      background: #1f293d;
+      background: #16243d;
       color: #e2e8f0;
       padding: 4px 10px;
       border-radius: 4px;
       font-size: 0.85rem;
+      border: 1px solid #23385d;
     }
+
+    section {
+      margin-top: 40px;
+    }
+    .section-title {
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: "";
+      flex-grow: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
     /* Video Reel Cards */
     .video-grid {
       display: grid;
@@ -157,8 +237,8 @@
       }
     }
     .reel-box {
-      background: #131b2e;
-      border: 1px solid #25334e;
+      background: #0d172a;
+      border: 1px solid #1e293b;
       border-radius: 8px;
       overflow: hidden;
       display: flex;
@@ -208,7 +288,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: #ff0000;
+      background: #ef4444;
       color: #fff;
       padding: 8px 14px;
       border-radius: 6px;
@@ -218,16 +298,17 @@
       transition: background 0.2s;
     }
     .btn-watch:hover {
-      background: #cc0000;
+      background: #dc2626;
     }
+
     .film-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
     .film-tag {
-      background: #162033;
-      border: 1px solid #25334e;
+      background: #101c30;
+      border: 1px solid #1e3a5f;
       padding: 8px 14px;
       border-radius: 20px;
       font-size: 0.9rem;
@@ -267,7 +348,7 @@
       border-bottom: 1px solid var(--border);
     }
     th {
-      background: #162033;
+      background: #101c30;
       color: var(--accent);
     }
   </style>
@@ -284,10 +365,108 @@
         <span>✉️ Email: <a href="mailto:anjit2351@gmail.com"><strong>anjit2351@gmail.com</strong></a></span>
         <span>📍 Aurangabad, Bihar, India</span>
       </div>
+
       <div class="contact-highlight">
         ✉️ <em>For the fastest response or in case of unreachable calls, email is preferred:</em> <a href="mailto:anjit2351@gmail.com" style="color: var(--accent); text-decoration: underline;"><strong>anjit2351@gmail.com</strong></a>
       </div>
+
+      <div class="header-actions">
+        <a href="https://raw.githubusercontent.com/Anjitkumar35/vfx-portfolio/main/Anjit_Kumar_Resume_Final.docx" download class="btn-download-cv">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download Resume (.docx)
+        </a>
+      </div>
     </header>
+
+    <!-- Visual Matchmove & RA Technical Graphics -->
+    <div class="vfx-showcase-grid">
+      <!-- 3D Camera Wire Cone Card -->
+      <div class="viewport-card">
+        <div class="viewport-header">
+          <span>CAMERA_VIEWPORT // 35mm</span>
+          <span>SOLVED [3DE]</span>
+        </div>
+        <div class="viewport-body">
+          <svg width="240" height="150" viewBox="0 0 240 150">
+            <!-- Ground Plane Grid -->
+            <line x1="20" y1="130" x2="220" y2="130" stroke="#1e3a5f" stroke-width="1.5" />
+            <line x1="40" y1="115" x2="200" y2="115" stroke="#1e3a5f" stroke-width="1" />
+            <line x1="60" y1="102" x2="180" y2="102" stroke="#1e3a5f" stroke-width="1" />
+            <line x1="20" y1="130" x2="80" y2="95" stroke="#1e3a5f" stroke-width="1" />
+            <line x1="120" y1="130" x2="120" y2="95" stroke="#1e3a5f" stroke-width="1" />
+            <line x1="220" y1="130" x2="160" y2="95" stroke="#1e3a5f" stroke-width="1" />
+            <!-- Camera Body -->
+            <rect x="105" y="15" width="30" height="20" rx="3" fill="#0d1b2a" stroke="#00d2ff" stroke-width="2" />
+            <circle cx="120" cy="25" r="5" fill="#00d2ff" />
+            <!-- Camera Cone Frustum Lines -->
+            <line x1="105" y1="35" x2="45" y2="110" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="3,3" />
+            <line x1="135" y1="35" x2="195" y2="110" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="3,3" />
+            <line x1="120" y1="35" x2="120" y2="110" stroke="rgba(0,210,255,0.4)" stroke-width="1" />
+            <!-- View Frustum Rectangle -->
+            <polygon points="45,110 195,110 175,85 65,85" fill="rgba(0, 210, 255, 0.08)" stroke="#00d2ff" stroke-width="1.5" />
+            <!-- Feature Tracking Markers -->
+            <circle cx="75" cy="98" r="2.5" fill="#f59e0b" />
+            <circle cx="150" cy="102" r="2.5" fill="#f59e0b" />
+            <circle cx="110" cy="90" r="2.5" fill="#f59e0b" />
+          </svg>
+          <div class="viewport-desc">
+            <strong>3D Camera Frustum & Solve Alignment</strong><br>
+            Precision focal length, ground plane registration & sub-pixel lens distortion.
+          </div>
+        </div>
+      </div>
+
+      <!-- RotoAnim / Body Tracking Wireframe Card -->
+      <div class="viewport-card">
+        <div class="viewport-header">
+          <span>ROTOANIM // BODY_TRACK</span>
+          <span>JOINT_LOCK</span>
+        </div>
+        <div class="viewport-body">
+          <svg width="240" height="150" viewBox="0 0 240 150">
+            <!-- Ground Line -->
+            <line x1="30" y1="135" x2="210" y2="135" stroke="#1e3a5f" stroke-width="1.5" />
+            <!-- Humanoid Wireframe Skeleton / Rig -->
+            <!-- Head & Neck -->
+            <circle cx="120" cy="24" r="9" fill="none" stroke="#00d2ff" stroke-width="1.8" />
+            <line x1="120" y1="33" x2="120" y2="40" stroke="#00d2ff" stroke-width="2" />
+            <!-- Spine & Pelvis -->
+            <line x1="120" y1="40" x2="120" y2="78" stroke="#00d2ff" stroke-width="2" />
+            <!-- Shoulders & Torso -->
+            <line x1="96" y1="46" x2="144" y2="46" stroke="#00d2ff" stroke-width="2" />
+            <!-- Left Arm -->
+            <line x1="96" y1="46" x2="80" y2="65" stroke="#00d2ff" stroke-width="1.8" />
+            <line x1="80" y1="65" x2="68" y2="82" stroke="#00d2ff" stroke-width="1.8" />
+            <!-- Right Arm -->
+            <line x1="144" y1="46" x2="160" y2="65" stroke="#00d2ff" stroke-width="1.8" />
+            <line x1="160" y1="65" x2="174" y2="80" stroke="#00d2ff" stroke-width="1.8" />
+            <!-- Pelvis Line -->
+            <line x1="106" y1="78" x2="134" y2="78" stroke="#00d2ff" stroke-width="2" />
+            <!-- Left Leg -->
+            <line x1="106" y1="78" x2="98" y2="105" stroke="#00d2ff" stroke-width="1.8" />
+            <line x1="98" y1="105" x2="92" y2="135" stroke="#00d2ff" stroke-width="1.8" />
+            <!-- Right Leg -->
+            <line x1="134" y1="78" x2="144" y2="105" stroke="#00d2ff" stroke-width="1.8" />
+            <line x1="144" y1="105" x2="152" y2="135" stroke="#00d2ff" stroke-width="1.8" />
+            <!-- Keyframe Joint Nodes (Golden Tracking Points) -->
+            <circle cx="120" cy="40" r="3" fill="#f59e0b" />
+            <circle cx="96" cy="46" r="3" fill="#f59e0b" />
+            <circle cx="144" cy="46" r="3" fill="#f59e0b" />
+            <circle cx="80" cy="65" r="3" fill="#f59e0b" />
+            <circle cx="160" cy="65" r="3" fill="#f59e0b" />
+            <circle cx="120" cy="78" r="3" fill="#f59e0b" />
+            <circle cx="98" cy="105" r="3" fill="#f59e0b" />
+            <circle cx="144" cy="105" r="3" fill="#f59e0b" />
+            <circle cx="92" cy="135" r="3" fill="#f59e0b" />
+            <circle cx="152" cy="135" r="3" fill="#f59e0b" />
+          </svg>
+          <div class="viewport-desc">
+            <strong>RotoAnim / Character Body Tracking</strong><br>
+            Accurate joint lock, rig fitting, live-action interaction & mesh alignment.
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Professional Pipeline Console -->
     <div class="terminal-box">
@@ -297,10 +476,10 @@
           <div class="dot dot-yellow"></div>
           <div class="dot dot-green"></div>
         </div>
-        <span>3DEqualizer_CameraSolver // Production Standard</span>
+        <span>3DEqualizer_CameraSolver // Production Pipeline</span>
       </div>
       <div>
-        <p style="font-size: 0.9rem; margin-bottom: 6px;"><strong>Core Toolset:</strong></p>
+        <p style="font-size: 0.9rem; margin-bottom: 6px;"><strong>Primary Pipeline Tools:</strong></p>
         <div class="tags-list">
           <span class="tag">3DEqualizer</span>
           <span class="tag">Autodesk Maya</span>
