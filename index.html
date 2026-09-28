@@ -48,18 +48,32 @@
     }
     .contact-bar {
       margin-top: 15px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 16px;
     }
     .contact-bar a {
       color: var(--text-main);
       text-decoration: none;
+      font-weight: 500;
     }
     .contact-bar a:hover {
+      color: var(--accent);
+    }
+    .contact-highlight {
+      background: #162033;
+      border: 1px solid #25334e;
+      padding: 8px 16px;
+      border-radius: 6px;
+      margin-top: 15px;
+      display: inline-block;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+    .contact-highlight strong {
       color: var(--accent);
     }
     section {
@@ -223,9 +237,13 @@
       <h1>ANJIT KUMAR</h1>
       <div class="subtitle">Senior Matchmove & Tracking Artist</div>
       <div class="contact-bar">
-        <span>Email: <a href="mailto:anjit2351@gmail.com">anjit2351@gmail.com</a></span>
-        <span>Phone: +91 7079661883</span>
-        <span>Location: Aurangabad, Bihar, India</span>
+        <span>📞 Main Phone: <a href="tel:+917004064492"><strong>+91 7004064492</strong></a></span>
+        <span>Alt Phone: <a href="tel:+917079661883">+91 7079661883</a></span>
+        <span>✉️ Email: <a href="mailto:anjit2351@gmail.com"><strong>anjit2351@gmail.com</strong></a></span>
+        <span>📍 Aurangabad, Bihar, India</span>
+      </div>
+      <div class="contact-highlight">
+        💡 <em>Agar call par contact na ho sake, to sabse best tarika email hai:</em> <a href="mailto:anjit2351@gmail.com" style="color: var(--accent); text-decoration: underline;"><strong>anjit2351@gmail.com</strong></a>
       </div>
     </header>
 
