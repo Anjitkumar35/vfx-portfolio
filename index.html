@@ -42,16 +42,15 @@
       border-bottom: 1px solid var(--border);
     }
     
-    /* DP Wrapper with slight marker-side shift and natural framing */
+    /* DP Wrapper placed to the far-left arrow mark */
     .profile-photo-container {
-      display: inline-block;
+      display: flex;
+      justify-content: flex-start; /* Arrow ki taraf poora left align */
       margin-bottom: 16px;
-      transform: translateX(-40px); /* Marker ki taraf thoda sa side shift */
-      transition: transform 0.3s ease;
     }
     @media(max-width: 640px) {
       .profile-photo-container {
-        transform: translateX(0); /* Mobile screen par natural center */
+        justify-content: center; /* Mobile devices par centered */
       }
     }
     .profile-photo {
@@ -59,7 +58,7 @@
       height: 145px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center 65%; /* Face aur surroundings dono naturally balance rahenge */
+      object-position: center 65%;
       border: 3px solid var(--accent);
       box-shadow: 0 0 20px var(--accent-glow);
       display: block;
@@ -383,6 +382,7 @@
 
   <div class="container">
     <header>
+      <!-- Arrow ke paas Left Positioned DP -->
       <div class="profile-photo-container">
         <img id="avatarImg" src="./profile.jpg" alt="Anjit Kumar" class="profile-photo" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='profile.jpg';}else if(this.dataset.retry==1){this.dataset.retry=2;this.src='/vfx-portfolio/profile.jpg';}">
       </div>
@@ -686,7 +686,7 @@
             img.style.objectPosition = `${centerX}% ${centerY}%`;
           }
         } catch (e) {
-          // Standard balanced default
+          // Fallback to default
         }
       }
     });
