@@ -41,18 +41,32 @@
       text-align: center;
       border-bottom: 1px solid var(--border);
     }
+    
+    /* DP Wrapper with slight marker-side shift and natural framing */
+    .profile-photo-container {
+      display: inline-block;
+      margin-bottom: 16px;
+      transform: translateX(-40px); /* Marker ki taraf thoda sa side shift */
+      transition: transform 0.3s ease;
+    }
+    @media(max-width: 640px) {
+      .profile-photo-container {
+        transform: translateX(0); /* Mobile screen par natural center */
+      }
+    }
     .profile-photo {
-      width: 140px;
-      height: 140px;
+      width: 145px;
+      height: 145px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 65%; /* Face aur surroundings dono naturally balance rahenge */
       border: 3px solid var(--accent);
       box-shadow: 0 0 20px var(--accent-glow);
-      margin-bottom: 16px;
-      display: inline-block;
+      display: block;
       background-color: #0d1524;
+      transition: object-position 0.3s ease;
     }
+
     h1 {
       font-size: 2.3rem;
       letter-spacing: 1.5px;
@@ -369,7 +383,10 @@
 
   <div class="container">
     <header>
-      <img src="./profile.jpg" alt="Anjit Kumar" class="profile-photo" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='profile.jpg';}else if(this.dataset.retry==1){this.dataset.retry=2;this.src='/vfx-portfolio/profile.jpg';}">
+      <div class="profile-photo-container">
+        <img id="avatarImg" src="./profile.jpg" alt="Anjit Kumar" class="profile-photo" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='profile.jpg';}else if(this.dataset.retry==1){this.dataset.retry=2;this.src='/vfx-portfolio/profile.jpg';}">
+      </div>
+
       <h1>ANJIT KUMAR</h1>
       <div class="subtitle">Senior Matchmove & Tracking Artist</div>
       <div class="contact-bar">
@@ -652,5 +669,27 @@
     </section>
   </div>
 
+  <!-- Smart Face Centering Script -->
+  <script>
+    window.addEventListener('load', async () => {
+      const img = document.getElementById('avatarImg');
+      if ('FaceDetector' in window && img) {
+        try {
+          const detector = new FaceDetector({ fastMode: true, maxDetectedFaces: 1 });
+          const faces = await detector.detect(img);
+          if (faces.length > 0) {
+            const face = faces[0].boundingBox;
+            const naturalW = img.naturalWidth || img.width;
+            const naturalH = img.naturalHeight || img.height;
+            const centerX = ((face.x + face.width / 2) / naturalW) * 100;
+            const centerY = ((face.y + face.height / 2) / naturalH) * 100;
+            img.style.objectPosition = `${centerX}% ${centerY}%`;
+          }
+        } catch (e) {
+          // Standard balanced default
+        }
+      }
+    });
+  </script>
 </body>
 </html>
